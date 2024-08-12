@@ -17,13 +17,13 @@ export const OneCart = (handleAddToCart, handleAddFavorites) => {
 
   useEffect(() => {
     const prevProduct = params.id;
+    console.log(prevProduct);
     const data = async () => {
       const res = await getOneProduct(prevProduct);
       setProduct(res);
     };
     data();
   }, []);
-  console.log(product);
 
   return (
     <>
