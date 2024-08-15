@@ -23,7 +23,7 @@ export const useFavorites = () => {
     fetch();
   }, []);
 
-  const handleFavorites = async (id: Favorites) => {
+  const handleFavorites = async (id: string) => {
     if (user) {
       let updatefavorites = JSON.parse(localStorage.getItem("favorites")) || [];
       const coincidenceByUser = updatefavorites.findIndex(

@@ -7,6 +7,7 @@ const HomePage = () => {
       sx={{
         display: "flex",
         width: "100%",
+        marginTop: "120px",
       }}>
       <ProductsContainer />
     </Box>

@@ -13,7 +13,7 @@ export const ProductFavorite = () => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          marginTop: "100px",
+          marginTop: "150px",
           gap: "10px",
           marginLeft: "20px",
         }}>

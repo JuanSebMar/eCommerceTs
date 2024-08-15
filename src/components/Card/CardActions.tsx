@@ -2,9 +2,8 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import { Box } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
-import { IconShoppingCartPlus } from "@tabler/icons-react";
-import { buttonStyles } from "../../common/styles/buttonStyles";
 import { toast } from "react-toastify";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 interface Props {
   onClickFavorite: () => void;
@@ -12,7 +11,6 @@ interface Props {
   id: string;
 }
 export const CardActions = ({ onClickFavorite, onClickCart, id }: Props) => {
-  const styles = buttonStyles();
   const productUrl = `${window.location.origin}/cart/${id}`;
 
   const handleShare = () => {
@@ -31,32 +29,63 @@ export const CardActions = ({ onClickFavorite, onClickCart, id }: Props) => {
     <Box
       sx={{
         display: "flex",
-        width: "190px",
-        marginLeft: "15px",
+        width: {
+          xl: "190px",
+          lg: "170px",
+          md: "150px",
+          sm: "95px",
+          xs: "78px",
+        },
+        marginLeft: { lg: "15px", md: "12px", sm: "10px", xs: "8px" },
         justifyContent: "space-between",
       }}>
       <Box>
         <IconButton
           onClick={onClickFavorite}
-          sx={styles.button}
           aria-label="add to favorites">
-          <FavoriteIcon sx={{ color: "black" }} />
+          <FavoriteIcon
+            sx={{
+              fontSize: {
+                xl: "30px",
+                lg: "30px",
+                md: "20px",
+                sm: "15px",
+                xs: "10px",
+              },
+              color: "black",
+            }}
+          />
         </IconButton>
         <IconButton
           onClick={handleShare}
-          sx={styles.button}
           aria-label="share">
-          <ShareIcon sx={{ color: "black" }} />
+          <ShareIcon
+            sx={{
+              fontSize: {
+                xl: "30px",
+                lg: "30px",
+                md: "20px",
+                sm: "15px",
+                xs: "10px",
+              },
+              color: "black",
+            }}
+          />
         </IconButton>
       </Box>
       <Box>
-        <IconButton
-          sx={styles.button}
-          onClick={onClickCart}>
-          <IconShoppingCartPlus
-            style={{
+        <IconButton onClick={onClickCart}>
+          <AddShoppingCartIcon
+            sx={{
               display: "flex",
               color: "black",
+              fontSize: {
+                xl: "30px",
+                lg: "30px",
+                md: "20px",
+                sm: "15px",
+                xs: "10px",
+              },
             }}
           />
         </IconButton>

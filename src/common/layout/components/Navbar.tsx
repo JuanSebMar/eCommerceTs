@@ -18,6 +18,7 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import StorefrontIcon from "@mui/icons-material/Storefront";
+import SearchBar from "./SearchBar";
 
 const navLinks = [
   {
@@ -39,109 +40,119 @@ export const Navbar = () => {
     <>
       <AppBar
         sx={{
-          backgroundColor: "black",
           display: "flex",
-          justifyContent: "space-between",
-          flexDirection: "row",
+          backgroundColor: "black",
         }}>
-        <Toolbar sx={{ display: "flex", gap: "10px" }}>
+        <Box
+          sx={{
+            backgroundColor: "black",
+            display: "flex",
+            flexDirection: "row",
+            marginLeft: "20px",
+            gap: "300px",
+          }}>
           <Link to={"/"}>
-            <IconButton>
+            <IconButton sx={{ marginTop: "10px" }}>
               <StorefrontIcon sx={{ color: "white" }} />
             </IconButton>
           </Link>
-          <Link to={"/dashboard"}>
-            <Typography sx={{ flexGrow: 1, fontSize: 20, color: "#ffffff" }}>
-              DashBoard
-            </Typography>
-          </Link>
+          <SearchBar items={""} />
+        </Box>
+        <Box sx={{ display: "flex" }}>
+          <Toolbar sx={{ display: "flex", gap: "10px" }}>
+            <Link to={"/dashboard"}>
+              <Typography sx={{ flexGrow: 1, fontSize: 20, color: "#ffffff" }}>
+                DashBoard
+              </Typography>
+            </Link>
 
-          <SmoothScrollLink to="#contac">
-            <Typography sx={{ flexGrow: 1, fontSize: 20, color: "#ffffff" }}>
-              Contact
-            </Typography>
-          </SmoothScrollLink>
-          <CustomCategoriesList />
-        </Toolbar>
-        {/* . */}
-        <Toolbar sx={{ display: "flex", gap: "10px" }}>
-          {user ? (
-            <Box sx={{ marginRight: 45 }}>
-              {navLinks.map((item) => (
-                <Link
-                  to={item.link}
-                  key={item.title}>
-                  <IconButton>{item.icon}</IconButton>
-                </Link>
-              ))}
-            </Box>
-          ) : (
-            <Box sx={{ gap: 2 }}>
-              {navLinks.map((item) => (
-                <Link
-                  to={item.link}
-                  key={item.title}>
-                  <IconButton>{item.icon}</IconButton>
-                </Link>
-              ))}
-            </Box>
-          )}
-          <Box sx={{ display: "flex" }}>
+            <SmoothScrollLink to="#contac">
+              <Typography sx={{ flexGrow: 1, fontSize: 20, color: "#ffffff" }}>
+                Contact
+              </Typography>
+            </SmoothScrollLink>
+            <CustomCategoriesList />
+          </Toolbar>
+          {/* . */}
+          <Toolbar sx={{ display: "flex", gap: "10px" }}>
             {user ? (
-              <Accordion
-                sx={{
-                  position: "absolute",
-                  zIndex: 9999,
-                  right: 0,
-                  top: 5,
-                }}>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon sx={{ color: "#ffffff" }} />}
-                  sx={{ backgroundColor: "black", maxHeight: "20px" }}>
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                    {user && <BadgeAvatars />}
-                    <Typography
-                      sx={{
-                        fontSize: 20,
-                        color: "#ffffff",
-                        minWidth: "max-content",
-                      }}>
-                      {user && user.displayName}
-                    </Typography>
-                  </Box>
-                </AccordionSummary>
-                <AccordionDetails
-                  sx={{
-                    fontSize: 10,
-                    backgroundColor: "black",
-                  }}>
-                  {user && <LogOut />}
-                </AccordionDetails>
-              </Accordion>
+              <Box sx={{ marginRight: 45 }}>
+                {navLinks.map((item) => (
+                  <Link
+                    to={item.link}
+                    key={item.title}>
+                    <IconButton>{item.icon}</IconButton>
+                  </Link>
+                ))}
+              </Box>
             ) : (
-              <>
-                <NavLink
-                  className={({ isActive }) =>
-                    `nav-item nav-link  ${isActive ? "active" : ""}`
-                  }
-                  to="/singin">
-                  <Typography sx={{ fontSize: 20, color: "#ffffff" }}>
-                    SingIn
-                  </Typography>
-                </NavLink>
-                <NavLink
-                  className={({ isActive }) =>
-                    `nav-item nav-link  ${isActive ? "active" : ""}`
-                  }
-                  to="/login">
-                  <Typography sx={{ fontSize: 20, color: "#ffffff" }}>
-                    Login
-                  </Typography>
-                </NavLink>
-              </>
+              <Box sx={{ gap: 2 }}>
+                {navLinks.map((item) => (
+                  <Link
+                    to={item.link}
+                    key={item.title}>
+                    <IconButton>{item.icon}</IconButton>
+                  </Link>
+                ))}
+              </Box>
             )}
-          </Box>
-        </Toolbar>
+            <Box sx={{ display: "flex" }}>
+              {user ? (
+                <Accordion
+                  sx={{
+                    position: "absolute",
+                    zIndex: 9999,
+                    right: 0,
+                    top: 5,
+                  }}>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon sx={{ color: "#ffffff" }} />}
+                    sx={{ backgroundColor: "black", maxHeight: "20px" }}>
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                      {user && <BadgeAvatars />}
+                      <Typography
+                        sx={{
+                          fontSize: 20,
+                          color: "#ffffff",
+                          minWidth: "max-content",
+                        }}>
+                        {user && user.displayName}
+                      </Typography>
+                    </Box>
+                  </AccordionSummary>
+                  <AccordionDetails
+                    sx={{
+                      fontSize: 10,
+                      backgroundColor: "black",
+                    }}>
+                    {user && <LogOut />}
+                  </AccordionDetails>
+                </Accordion>
+              ) : (
+                <>
+                  <NavLink
+                    className={({ isActive }) =>
+                      `nav-item nav-link  ${isActive ? "active" : ""}`
+                    }
+                    to="/singin">
+                    <Typography sx={{ fontSize: 20, color: "#ffffff" }}>
+                      SingIn
+                    </Typography>
+                  </NavLink>
+                  <NavLink
+                    className={({ isActive }) =>
+                      `nav-item nav-link  ${isActive ? "active" : ""}`
+                    }
+                    to="/login">
+                    <Typography sx={{ fontSize: 20, color: "#ffffff" }}>
+                      Login
+                    </Typography>
+                  </NavLink>
+                </>
+              )}
+            </Box>
+          </Toolbar>
+        </Box>
       </AppBar>
     </>
   );
