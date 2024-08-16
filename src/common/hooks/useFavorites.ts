@@ -62,7 +62,7 @@ export const useFavorites = () => {
       const data = await getData(user, "favorites"); // getData me d,"favorites"evuelve un array con los productos enteros(se le agrega img, title, etc )
       setFavorites(data);
     } else {
-      toast.info("Inicia sesion Guacho");
+      toast.info("Inicia sesion");
     }
   };
 

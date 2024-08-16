@@ -62,7 +62,7 @@ export const useCart = () => {
       setCart(data);
       toast.success("Add to Cart");
     } else {
-      toast.info("Inicia sesion Guacho");
+      toast.info("Inicia sesion");
     }
   };
 

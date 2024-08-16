@@ -13,9 +13,11 @@ export const FavoritesPage = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          marginTop: "80px",
+          marginTop: "150px",
         }}>
-        <Typography sx={{ fontSize: "50px" }}>Logueate Guacho!!</Typography>
+        <Typography sx={{ fontSize: "50px" }}>
+          Debes Loguarte para ver tus favoritos
+        </Typography>
       </Box>
     );
   }

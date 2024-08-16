@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import { Product } from "../interfaces/interface";
 import { getAllCategories } from "../services/categoriesServices";
 
 export const useCategories = () => {

@@ -37,13 +37,10 @@ export default function BadgeAvatars() {
   const { user } = useAuth();
   const avatar = user.photoURL;
   return (
-    <Stack
-      direction="row"
-      spacing={2}
-      margin={"6px"}>
+    <Stack>
       <StyledBadge
         overlap="circular"
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
         variant="dot">
         <Avatar src={avatar} />
       </StyledBadge>

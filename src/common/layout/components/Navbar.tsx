@@ -1,24 +1,14 @@
 import { CustomCategoriesList } from "../../components/CustomCategoriesList";
 import { SmoothScrollLink } from "../../components/SmoothScrollLink";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { LogOut } from "../../../auth/components/LogOut";
-import BadgeAvatars from "../../components/UserIcon";
+
 import { useAuth } from "../../../auth/AuthContext";
-import { Link, NavLink } from "react-router-dom";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  AppBar,
-  Box,
-  IconButton,
-  Toolbar,
-  Typography,
-} from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Link } from "react-router-dom";
+import { AppBar, Box, IconButton, Toolbar, Typography } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import SearchBar from "./SearchBar";
+import { CustomListUsers } from "../../components/CustomListUsers";
 
 const navLinks = [
   {
@@ -37,123 +27,165 @@ export const Navbar = () => {
   const { user } = useAuth();
 
   return (
-    <>
-      <AppBar
+    <AppBar
+      sx={{
+        display: "flex",
+        backgroundColor: "black",
+      }}>
+      <Toolbar
         sx={{
           display: "flex",
+          marginLeft: "20px",
+          gap: "300px",
+          minHeight: "50px",
           backgroundColor: "black",
         }}>
-        <Box
-          sx={{
-            backgroundColor: "black",
-            display: "flex",
-            flexDirection: "row",
-            marginLeft: "20px",
-            gap: "300px",
-          }}>
-          <Link to={"/"}>
-            <IconButton sx={{ marginTop: "10px" }}>
-              <StorefrontIcon sx={{ color: "white" }} />
-            </IconButton>
-          </Link>
-          <SearchBar items={""} />
-        </Box>
-        <Box sx={{ display: "flex" }}>
-          <Toolbar sx={{ display: "flex", gap: "10px" }}>
-            <Link to={"/dashboard"}>
-              <Typography sx={{ flexGrow: 1, fontSize: 20, color: "#ffffff" }}>
-                DashBoard
-              </Typography>
-            </Link>
+        <Link to={"/"}>
+          <IconButton sx={{ marginTop: "10px" }}>
+            <StorefrontIcon sx={{ color: "white" }} />
+          </IconButton>
+        </Link>
+        <SearchBar items={""} />
+      </Toolbar>
 
-            <SmoothScrollLink to="#contac">
-              <Typography sx={{ flexGrow: 1, fontSize: 20, color: "#ffffff" }}>
-                Contact
-              </Typography>
-            </SmoothScrollLink>
-            <CustomCategoriesList />
-          </Toolbar>
-          {/* . */}
-          <Toolbar sx={{ display: "flex", gap: "10px" }}>
-            {user ? (
-              <Box sx={{ marginRight: 45 }}>
-                {navLinks.map((item) => (
-                  <Link
-                    to={item.link}
-                    key={item.title}>
-                    <IconButton>{item.icon}</IconButton>
-                  </Link>
-                ))}
-              </Box>
-            ) : (
-              <Box sx={{ gap: 2 }}>
-                {navLinks.map((item) => (
-                  <Link
-                    to={item.link}
-                    key={item.title}>
-                    <IconButton>{item.icon}</IconButton>
-                  </Link>
-                ))}
-              </Box>
-            )}
+      <Toolbar
+        sx={{
+          gap: "10px",
+        }}>
+        {!user ? (
+          <Box
+            sx={{
+              display: "flex",
+              width: "100vw",
+              justifyContent: "space-between",
+            }}>
             <Box sx={{ display: "flex" }}>
-              {user ? (
-                <Accordion
-                  sx={{
-                    position: "absolute",
-                    zIndex: 9999,
-                    right: 0,
-                    top: 5,
-                  }}>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon sx={{ color: "#ffffff" }} />}
-                    sx={{ backgroundColor: "black", maxHeight: "20px" }}>
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                      {user && <BadgeAvatars />}
-                      <Typography
-                        sx={{
-                          fontSize: 20,
-                          color: "#ffffff",
-                          minWidth: "max-content",
-                        }}>
-                        {user && user.displayName}
-                      </Typography>
-                    </Box>
-                  </AccordionSummary>
-                  <AccordionDetails
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: "10px",
+                  marginTop: "11.5px",
+                }}>
+                <Link to={"/dashboard"}>
+                  <Typography
                     sx={{
-                      fontSize: 10,
-                      backgroundColor: "black",
+                      flexGrow: 1,
+                      fontSize: 20,
+                      color: "#ffffff",
                     }}>
-                    {user && <LogOut />}
-                  </AccordionDetails>
-                </Accordion>
-              ) : (
-                <>
-                  <NavLink
-                    className={({ isActive }) =>
-                      `nav-item nav-link  ${isActive ? "active" : ""}`
-                    }
-                    to="/singin">
-                    <Typography sx={{ fontSize: 20, color: "#ffffff" }}>
-                      SingIn
-                    </Typography>
-                  </NavLink>
-                  <NavLink
-                    className={({ isActive }) =>
-                      `nav-item nav-link  ${isActive ? "active" : ""}`
-                    }
-                    to="/login">
-                    <Typography sx={{ fontSize: 20, color: "#ffffff" }}>
-                      Login
-                    </Typography>
-                  </NavLink>
-                </>
-              )}
+                    DashBoard
+                  </Typography>
+                </Link>
+                <SmoothScrollLink to="#contac">
+                  <Typography
+                    sx={{
+                      flexGrow: 1,
+                      fontSize: 20,
+                      color: "#ffffff",
+                    }}>
+                    Contact
+                  </Typography>
+                </SmoothScrollLink>
+              </Box>
+
+              <Box>
+                <CustomCategoriesList />
+              </Box>
             </Box>
-          </Toolbar>
-        </Box>
-      </AppBar>
-    </>
+
+            <Box sx={{ display: "flex" }}>
+              <Box sx={{ display: "flex", marginTop: "8px" }}>
+                {navLinks.map((item) => (
+                  <Link
+                    to={item.link}
+                    key={item.title}>
+                    <IconButton>{item.icon}</IconButton>
+                  </Link>
+                ))}
+              </Box>
+
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  gap: "10px",
+                  textDecoration: "none",
+                  marginTop: "11.5px",
+                }}>
+                <Link to={"/login"}>
+                  <Typography sx={{ fontSize: "20px", color: "white" }}>
+                    Log In
+                  </Typography>
+                </Link>
+                <Link to={"/singin"}>
+                  <Typography sx={{ fontSize: "20px", color: "white" }}>
+                    Sing In
+                  </Typography>
+                </Link>
+              </Box>
+            </Box>
+          </Box>
+        ) : (
+          <Box
+            sx={{
+              display: "flex",
+              width: "100vw",
+              justifyContent: "space-between",
+            }}>
+            <Box sx={{ display: "flex" }}>
+              <Box sx={{ display: "flex" }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: "10px",
+                    marginTop: "11.5px",
+                  }}>
+                  <Link to={"/dashboard"}>
+                    <Typography
+                      sx={{
+                        flexGrow: 1,
+                        fontSize: 20,
+                        color: "#ffffff",
+                      }}>
+                      DashBoard
+                    </Typography>
+                  </Link>
+                  <SmoothScrollLink to="#contac">
+                    <Typography
+                      sx={{
+                        flexGrow: 1,
+                        fontSize: 20,
+                        color: "#ffffff",
+                      }}>
+                      Contact
+                    </Typography>
+                  </SmoothScrollLink>
+                </Box>
+
+                <Box>
+                  <CustomCategoriesList />
+                </Box>
+              </Box>
+            </Box>
+
+            <Box
+              sx={{
+                display: "flex",
+              }}>
+              <Box sx={{ display: "flex", marginTop: "11.5px" }}>
+                {navLinks.map((item) => (
+                  <Link
+                    to={item.link}
+                    key={item.title}>
+                    <IconButton>{item.icon}</IconButton>
+                  </Link>
+                ))}
+                <CustomListUsers />
+              </Box>
+            </Box>
+          </Box>
+        )}
+      </Toolbar>
+    </AppBar>
   );
 };
