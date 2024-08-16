@@ -15,7 +15,9 @@ export const CustomListUsers = () => {
   const { user } = useAuth();
 
   return (
-    <Accordion sx={{ backgroundColor: "black" }}>
+    <Accordion
+      sx={{ backgroundColor: "black" }}
+      disableGutters>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon sx={{ color: "#ffffff" }} />}
         sx={{ backgroundColor: "black" }}>
@@ -43,7 +45,7 @@ export const CustomListUsers = () => {
             backgroundColor: "black",
             position: "absolute",
             borderRadius: "10px",
-            margin: "7px 0px 0px 150px",
+            margin: "3px 0px 0px 150px",
           }}>
           <LogOut />
         </AccordionDetails>

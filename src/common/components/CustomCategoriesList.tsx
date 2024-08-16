@@ -25,8 +25,9 @@ export const CustomCategoriesList = () => {
         position: "absolute",
         backgroundColor: "black",
       }}
+      disableGutters
       expanded={expanded}
-      onChange={() => setExpanded(!false)}
+      onChange={() => setExpanded(!expanded)}
       onMouseLeave={() => setExpanded(false)}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}

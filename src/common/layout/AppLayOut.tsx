@@ -10,7 +10,7 @@ const AppLayOut = () => {
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       <Navbar />
       <Suspense fallback={<CustomizedProgressBars />}>
-        <Box sx={{ flex: 1, padding: "50px" }}>
+        <Box sx={{ flexGrow: 1 }}>
           <Outlet />
         </Box>
       </Suspense>

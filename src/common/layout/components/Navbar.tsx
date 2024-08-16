@@ -168,20 +168,15 @@ export const Navbar = () => {
               </Box>
             </Box>
 
-            <Box
-              sx={{
-                display: "flex",
-              }}>
-              <Box sx={{ display: "flex", marginTop: "11.5px" }}>
-                {navLinks.map((item) => (
-                  <Link
-                    to={item.link}
-                    key={item.title}>
-                    <IconButton>{item.icon}</IconButton>
-                  </Link>
-                ))}
-                <CustomListUsers />
-              </Box>
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              {navLinks.map((item) => (
+                <Link
+                  to={item.link}
+                  key={item.title}>
+                  <IconButton>{item.icon}</IconButton>
+                </Link>
+              ))}
+              <CustomListUsers />
             </Box>
           </Box>
         )}
