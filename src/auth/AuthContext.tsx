@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged, signInWithPopup } from "firebase/auth";
-import { app } from "../common/firebase/firebase";
+import { app } from "./firebase/firebase";
 import { Registro } from "../common/interfaces/interface";
 import { GoogleAuthProvider } from "firebase/auth";
 

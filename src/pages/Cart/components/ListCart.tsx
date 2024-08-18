@@ -7,11 +7,12 @@ import {
   Typography,
   ButtonGroup,
 } from "@mui/material";
+
 import DeleteIcon from "@mui/icons-material/Delete";
 import imagerayo from "../../../common/assets/rayoProducts.png";
 import imagebolsa from "../../../common/assets/bolsaproduct.png";
 import { CustomButton } from "./CustomButton";
-import { useCart } from "../../../common/hooks/useCart";
+import { useCart } from "../../../products/hooks/useCart";
 import { Link } from "react-router-dom";
 
 export const ListCart = () => {

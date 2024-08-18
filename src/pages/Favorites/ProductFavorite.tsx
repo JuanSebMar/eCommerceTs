@@ -1,7 +1,7 @@
-import { ProductCard } from "../../components/Card/ProductCard";
+import { ProductCard } from "../../products/Card/ProductCard";
 import { Box, Typography } from "@mui/material";
-import { useFavorites } from "../../common/hooks/useFavorites";
-import { useCart } from "../../common/hooks/useCart";
+import { useFavorites } from "../../products/hooks/useFavorites";
+import { useCart } from "../../products/hooks/useCart";
 
 export const ProductFavorite = () => {
   const { favorites, handleFavorites } = useFavorites();

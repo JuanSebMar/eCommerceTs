@@ -1,5 +1,5 @@
-import { CustomCategoriesList } from "../../components/CustomCategoriesList";
-import { SmoothScrollLink } from "../../components/SmoothScrollLink";
+import { CustomCategoriesList } from "../../../products/components/CustomCategoriesList";
+import { SmoothScrollLink } from "../components/SmoothScrollLink";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import { useAuth } from "../../../auth/AuthContext";
@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 import { AppBar, Box, IconButton, Toolbar, Typography } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import StorefrontIcon from "@mui/icons-material/Storefront";
-import SearchBar from "./SearchBar";
-import { CustomListUsers } from "../../components/CustomListUsers";
+import SearchBar from "../navbar/components/SearchBar";
+import { CustomListUsers } from "../components/CustomListUsers";
 
 const navLinks = [
   {
@@ -45,7 +45,7 @@ export const Navbar = () => {
             <StorefrontIcon sx={{ color: "white" }} />
           </IconButton>
         </Link>
-        <SearchBar items={""} />
+        <SearchBar />
       </Toolbar>
 
       <Toolbar

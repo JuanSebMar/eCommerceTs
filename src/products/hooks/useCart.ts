@@ -1,10 +1,10 @@
-import { removeLocalStorage } from "../../functions/localStorage";
+import { removeLocalStorage } from "../functions/localstoragefunction";
 import { useEffect, useState } from "react";
 
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../auth/AuthContext";
-import { getData } from "../utils/functions";
+import { getData } from "../hooks/getlocalcart";
 
 export const useCart = () => {
   const [cart, setCart] = useState([]);
@@ -16,7 +16,7 @@ export const useCart = () => {
       const data = await getData(user, "cart");
       setCart(data);
     };
-    fetch();
+    user && fetch();
   }, []);
 
   const handleAddToCart = async (id: string) => {

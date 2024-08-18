@@ -1,9 +1,9 @@
-import { Navbar } from "./components/Navbar";
+import { Navbar } from "../layout/navbar/Navbar";
 import { Outlet } from "react-router-dom";
-import { Footer } from "./components/Footer";
+import { Footer } from "./footer/Footer";
 import { Box } from "@mui/material";
 import { Suspense } from "react";
-import CustomizedProgressBars from "../components/Spinner";
+import CustomizedProgressBars from "../layout/components/Spinner";
 
 const AppLayOut = () => {
   return (

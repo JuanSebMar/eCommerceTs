@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { getOneProduct } from "../../../common/services/productService";
-import { useFavorites } from "../../../common/hooks/useFavorites";
+import { getOneProduct } from "../../../products/services/productService";
+import { useFavorites } from "../../../products/hooks/useFavorites";
 
 import { CustomButton } from "./CustomButton";
 
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
 import IconButton from "@mui/material/IconButton";
 import { Box, CardMedia, Divider, Typography } from "@mui/material";
-import { useCart } from "../../../common/hooks/useCart";
+import { useCart } from "../../../products/hooks/useCart";
 
 interface Product {
   image?: string;

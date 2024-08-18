@@ -1,13 +1,15 @@
-// import { MarketRouter } from "./common/router/MarketRouter";
 import { AuthProvider } from "./auth/AuthContext";
+import { ProductsProvider } from "./products/context/ProductsContext";
 import { MarketRouter } from "./common/router/MarketRouter";
 
 export const App = () => {
   return (
     <>
-      <AuthProvider>
-        <MarketRouter />
-      </AuthProvider>
+      <ProductsProvider>
+        <AuthProvider>
+          <MarketRouter />
+        </AuthProvider>
+      </ProductsProvider>
     </>
   );
 };

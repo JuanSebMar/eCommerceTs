@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useProducts } from "../../common/hooks/useProducts";
 import { Box } from "@mui/material";
-import { useCart } from "../../common/hooks/useCart";
-import { useFavorites } from "../../common/hooks/useFavorites";
-import { ProductCard } from "../../components/Card/ProductCard";
+import { useCart } from "../../products/hooks/useCart";
+import { useFavorites } from "../../products/hooks/useFavorites";
+import { ProductCard } from "../../products/Card/ProductCard";
+import { useProducts } from "../../products/context/ProductsContext";
 
 export const ProductCategory = () => {
   const [filterproduct, setFilterProduct] = useState([]);

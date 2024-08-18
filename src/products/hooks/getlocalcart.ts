@@ -5,7 +5,7 @@ export const getData = async (user, name) => {
   const localData = JSON.parse(localStorage.getItem(name)) || [];
   //uso flatMap para aplanar todos los arrays de items de todos los  objetos que hay en el localstorage
   const promises = localData
-    .filter((cart) => cart.userId == user.uid)
+    .filter((cart) => cart.userId == user?.uid)
     .flatMap((item) => {
       if (item.items.length > 0) {
         //accedo a .items porque item es igual a {usrId, items}

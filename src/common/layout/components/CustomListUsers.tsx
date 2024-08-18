@@ -8,8 +8,8 @@ import {
 
 import BadgeAvatars from "./UserIcon";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { useAuth } from "../../auth/AuthContext";
-import { LogOut } from "../../auth/components/LogOut";
+import { useAuth } from "../../../auth/AuthContext";
+import { LogOut } from "../../../auth/components/LogOut";
 
 export const CustomListUsers = () => {
   const { user } = useAuth();

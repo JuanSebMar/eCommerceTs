@@ -1,4 +1,4 @@
-import { Product } from "../interfaces/interface";
+import { Product } from "../../common/interfaces/interface";
 import axios from "axios";
 
 export const getOneProduct = async (id: string) => {
