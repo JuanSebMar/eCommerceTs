@@ -16,13 +16,14 @@ import { useCart } from "../../../products/hooks/useCart";
 import { Link } from "react-router-dom";
 
 export const ListCart = () => {
-  const {
-    cleanCart,
-    cart,
-    handleAddToCart,
-    handleLessToCart,
-    handleRemoveItem,
-  } = useCart();
+  const { cart, handleAddToCart, handleLessToCart, handleRemoveItem } =
+    useCart();
+
+  const calculateTotal = (envio: number = 0) => {
+    const total: number =
+      cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0) ?? 0;
+    return (total + envio).toFixed(2);
+  };
 
   return (
     <Box
@@ -237,12 +238,10 @@ export const ListCart = () => {
                   <Typography sx={{ marginTop: "20px" }}>Total</Typography>
                 </Box>
                 <Box>
-                  <Typography>
-                    {cart && cart.map((product) => `$${product.price}`)}
-                  </Typography>
+                  <Typography>${calculateTotal()}</Typography>
                   <Typography>$3,99</Typography>
                   <Typography sx={{ marginTop: "20px" }}>
-                    {cart && cart.map((product) => `$${product.price}`)}
+                    ${calculateTotal(3.99)}
                   </Typography>
                 </Box>
               </Box>

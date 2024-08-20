@@ -1,26 +1,22 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { Product } from "../../common/interfaces/interface";
 import { getAllProducts } from "../services/productService";
+import { useQuery } from "@tanstack/react-query";
 
 const ProductsContext = createContext<any>({});
 
 export const ProductsProvider = ({ children }) => {
-  const [products, setProducts] = useState<Product[]>([]);
   const [search, setSearch] = useState("");
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
-  const getProduct = async () => {
-    const data = await getAllProducts();
-    setProducts(data);
-    setFilteredProducts(data);
-  };
-
-  useEffect(() => {
-    const get = async () => {
-      await getProduct();
-    };
-    get();
-  }, []);
+  const {
+    data: products = [],
+    isLoading,
+    error,
+  } = useQuery<Product[], Error>({
+    queryKey: ["products", "categories"], // Clave de caché
+    queryFn: getAllProducts,
+  });
 
   useEffect(() => {
     if (search.length > 1) {
@@ -35,7 +31,14 @@ export const ProductsProvider = ({ children }) => {
 
   return (
     <ProductsContext.Provider
-      value={{ products, getProduct, search, setSearch, filteredProducts }}>
+      value={{
+        products,
+        isLoading,
+        error,
+        search,
+        setSearch,
+        filteredProducts,
+      }}>
       {children}
     </ProductsContext.Provider>
   );

@@ -5,27 +5,29 @@ import { useCart } from "../../products/hooks/useCart";
 import { useFavorites } from "../../products/hooks/useFavorites";
 import { ProductCard } from "../../products/Card/ProductCard";
 import { useProducts } from "../../products/context/ProductsContext";
+import { getCategories } from "../../products/services/productService";
+import { useQuery } from "@tanstack/react-query";
 
 export const ProductCategory = () => {
   const [filterproduct, setFilterProduct] = useState([]);
-  const { products, getProduct } = useProducts();
+  const { products } = useProducts();
   const { handleAddToCart } = useCart();
   const { handleFavorites } = useFavorites();
   const params = useParams();
 
-  useEffect(() => {
-    const getCategory = async () => {
-      await getProduct();
-    };
-    getCategory();
-  }, [params]);
+  const { data: product = [] } = useQuery({
+    queryKey: ["category"],
+    queryFn: async () => getCategories(product),
+  });
 
   useEffect(() => {
-    const filterProducts =
+    const filterCategory =
       products.length > 0 &&
-      products.filter((product) => product.category == params.category);
-    setFilterProduct(filterProducts);
-  }, [products]);
+      products.filter(
+        (product: { category: string }) => product.category == params.category
+      );
+    setFilterProduct(filterCategory);
+  }, [products, params.category]);
 
   return (
     <Box

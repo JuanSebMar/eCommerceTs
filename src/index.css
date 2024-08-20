@@ -2,3 +2,22 @@ html,
 body {
   margin: 0;
 }
+
+/* Para WebKit browsers */
+::-webkit-scrollbar {
+  width: 12px; /* Ancho del scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color del track del scrollbar */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000; /* Color del thumb del scrollbar */
+  border-radius: 6px; /* Bordes redondeados para el thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #000; /* Color del thumb al pasar el mouse */
+}

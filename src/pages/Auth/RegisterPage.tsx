@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Register } from "../../auth/components/Register";
+import { GoogleSingIn } from "../../auth/components/GoogleSingIn";
+import imageForm from "../../common/assets/imgFormulario.png";
 
 import FormControl from "@mui/material/FormControl";
 import IconButton from "@mui/material/IconButton";
@@ -9,10 +11,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import InputAdornment from "@mui/material/InputAdornment";
 import InputLabel from "@mui/material/InputLabel";
-import { Box, Button, Typography } from "@mui/material";
-import imageForm from "../../common/assets/imgFormulario.png";
-import imageGoogle from "../../common/assets/googleImage.png";
-import { GoogleSingIn } from "../../auth/components/GoogleSingIn";
+import { Box, Typography } from "@mui/material";
 
 export const RegisterPage = () => {
   const navigate = useNavigate();
@@ -121,7 +120,7 @@ export const RegisterPage = () => {
               <button
                 className="btn btn-primary mt-2"
                 onClick={onLogin}>
-                Login
+                Log in
               </button>
               <Register
                 newUser={newUser}

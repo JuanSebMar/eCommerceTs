@@ -33,8 +33,10 @@ export const Register: React.FC<Registro> = ({ newUser, email, password }) => {
     }
   };
   return (
-    <button className="btn btn-primary mt-2" onClick={onRegister}>
-      Registrarse
+    <button
+      className="btn btn-primary mt-2"
+      onClick={onRegister}>
+      Sing in
     </button>
   );
 };

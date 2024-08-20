@@ -39,7 +39,7 @@ export const OneCart = () => {
         display: "flex",
         backgroundColor: "white",
         borderRadius: "5px",
-        margin: { lg: "120px 50px 50px 50px", xs: "100px 10px 10px 10px" },
+        margin: { lg: "150px 50px 50px 50px", xs: "100px 10px 10px 10px" },
         width: { lg: "1100px", xs: "290px" },
         boxShadow:
           "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",

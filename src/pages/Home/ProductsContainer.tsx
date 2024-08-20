@@ -3,14 +3,17 @@ import { Box } from "@mui/material";
 import { useCart } from "../../products/hooks/useCart";
 import { useFavorites } from "../../products/hooks/useFavorites";
 import { ProductCard } from "../../products/Card/ProductCard";
-import { useProducts } from "../../products/context/ProductsContext";
+import { Product } from "../../common/interfaces/interface";
+import { getAllProducts } from "../../products/services/productService";
+import { useQuery } from "@tanstack/react-query";
 
 export const ProductsContainer = () => {
-  const { filteredProducts } = useProducts();
+  const { data: products = [] } = useQuery<Product[], Error>({
+    queryKey: ["products"],
+    queryFn: getAllProducts,
+  });
   const { handleAddToCart } = useCart();
   const { handleFavorites } = useFavorites();
-
-  console.log(filteredProducts);
 
   return (
     <Box
@@ -22,7 +25,7 @@ export const ProductsContainer = () => {
         gap: 3,
         justifyContent: "center",
       }}>
-      {filteredProducts.map((product) => (
+      {products.map((product: Product) => (
         <ProductCard
           product={product}
           handleAddToCart={handleAddToCart}

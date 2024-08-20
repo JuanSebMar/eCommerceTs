@@ -45,7 +45,7 @@ export const CustomListUsers = () => {
             backgroundColor: "black",
             position: "absolute",
             borderRadius: "10px",
-            margin: "3px 0px 0px 150px",
+            margin: "3px 0px 0px 180px",
           }}>
           <LogOut />
         </AccordionDetails>
