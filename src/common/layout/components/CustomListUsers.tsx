@@ -13,7 +13,6 @@ import { LogOut } from "../../../auth/components/LogOut";
 
 export const CustomListUsers = () => {
   const { user } = useAuth();
-
   return (
     <Accordion
       sx={{ backgroundColor: "black" }}
@@ -27,13 +26,13 @@ export const CustomListUsers = () => {
             alignItems: "center",
             gap: 1,
           }}>
-          {user && <BadgeAvatars />}
+          {user.uid && <BadgeAvatars image={user.photoURL} />}
           <Typography
             sx={{
               fontSize: 20,
               color: "#ffffff",
             }}>
-            {user && user.displayName}
+            {user.uid && user.displayName.slice(0, 10)}
           </Typography>
         </Box>
       </AccordionSummary>
@@ -45,7 +44,7 @@ export const CustomListUsers = () => {
             backgroundColor: "black",
             position: "absolute",
             borderRadius: "10px",
-            margin: "3px 0px 0px 180px",
+            margin: "3px 0px 0px 30px",
           }}>
           <LogOut />
         </AccordionDetails>

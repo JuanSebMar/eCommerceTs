@@ -26,7 +26,7 @@ export const LogOut: React.FC = () => {
 
   return (
     <Button onClick={onLogout}>
-      <Box sx={{ display: "flex", alignItems: "center" }}>
+      <Box sx={{ display: "flex", alignItems: "center", marginTop: "5px" }}>
         <LogoutIcon sx={{ color: "#ffffff", fontSize: "12px" }} />
         <Typography sx={{ fontSize: 14, color: "#ffffff" }}>
           Cerrar sesión

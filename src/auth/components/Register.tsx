@@ -19,6 +19,9 @@ export const Register: React.FC<Registro> = ({ newUser, email, password }) => {
         email,
         password
       );
+      console.log(auth);
+      console.log(email);
+      console.log(password);
 
       await updateProfile(auth.currentUser, {
         displayName: newUser,
