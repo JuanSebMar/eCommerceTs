@@ -6,6 +6,7 @@ import { ProductCard } from "../../products/Card/ProductCard";
 import { Product } from "../../common/interfaces/interface";
 import { getAllProducts } from "../../products/services/productService";
 import { useQuery } from "@tanstack/react-query";
+import { SwiperProducts } from "../../products/components/SwiperProducts";
 
 export const ProductsContainer = () => {
   const { data: products = [] } = useQuery<Product[], Error>({
